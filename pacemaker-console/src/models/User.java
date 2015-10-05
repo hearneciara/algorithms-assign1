@@ -1,25 +1,30 @@
 package models;
 import static com.google.common.base.MoreObjects.toStringHelper;
+
 import com.google.common.base.Objects;
 
 public class User 
 {
-  public String firstName;
-  public String lastName;
-  public String email;
-  public String password;
+  static Long   counter = 0l;
 
-  public User()
-  {
-  }
+  public Long   id;
+
+private String firstName;
+private String lastName;
+private String email;
+private String password;
+
+
 
   public User(String firstName, String lastName, String email, String password)
   {
+    this.id        = counter++;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.password = password;
   }
+
   
   @Override  
   public int hashCode()  
