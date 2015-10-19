@@ -11,11 +11,11 @@ public class User
   static Long   counter = 0l;
 
   public Long   id;
-
-private String firstName;
-private String lastName;
-private String email;
-private String password;
+ 
+public String firstName;
+public String lastName;
+public String email;
+public String password;
 public Map<Long, Activity> activities = new HashMap<Long, Activity>();
 
 
