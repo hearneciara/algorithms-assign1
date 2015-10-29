@@ -43,38 +43,29 @@ public class Picture1 {
 		int minX = pic.width();
 		int maxY = 0;
 		int minY = pic.height();
-
-		for (int x = 0; x < pic.width(); x++) {
-			for (int y = 0; y < pic.height(); y++) {
-				if (!pic.get(x, y).equals(Color.WHITE) ) {
-
-					if (x < minX)
-						minX = x;
-					if (x > maxX)
-						maxX = x;
-					if (y < minY)
-						minY = y;
-					if (y > maxY)
-						maxY = y;
+        
 
 				}
-			}
 
-		}
+	    pixelMass.add(new Vertex(x, y));
+	    boolean valueToMatch = pool[x][y];
 
-		if (minX > maxX || minY > maxY) {
-			System.out.println("It's All White Pixels!!!");
-		} else {
-			for (int x = minX; x <= maxX; x++) {
-				pic.set(x, minY, Color.RED);
-				pic.set(x, maxY, Color.RED);
-			}
+	    if(pool[x+1] [y]   == valueToMatch) pixelMass = searchToAdd(x+1, y, pixelMass, pool);
+	    if(pool[x]   [y+1] == valueToMatch) pixelMass = searchToAdd(x, y+1, pixelMass, pool);
 
-			for (int y = minY; y <= maxY; y++) {
-				pic.set(minX, y, Color.RED);
-				pic.set(maxX, y, Color.RED);
-			}
-		}
+	    if(x-1 >= 0)
+	    {
+	        if(pool[x-1][y] == valueToMatch) pixelMass = searchToAdd(x-1, y, pixelMass, pool);
+	    }
+
+	    if(y-1 >= 0)
+	    {
+	        if(pool[x][y-1] == valueToMatch) pixelMass = searchToAdd(x, y-1, pixelMass, pool);
+	    }
+
+	    return pixelMass;
+	}
+		
 
 		pic.show();
 	}

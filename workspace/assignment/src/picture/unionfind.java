@@ -12,9 +12,6 @@ public class unionfind {
       return id;
     }
 
-     /**
-      * Returns the number of components.
-      */
      public int count() 
      {
     	   
@@ -28,35 +25,30 @@ public class unionfind {
            }
      }
 
-     /**
-      * Returns the component identifier for the component containing site p.
-      */
      public int find(int p) {
          //TODO
          return 0;
      }
 
-     /**
-      * Returns true if the the two sites are in the same component.
-      */
+
      public boolean connected(int p, int q) 
      { 
     	 return id[p] == id[q]; 
      }
 
-     /**
-      * Merges the component containing site p with the 
-      * the component containing site q.
-      */
-     public void union(int p, int q) {
-         //TODO
+     public void union(int p, int q) 
+     {
+    	 int pid = id[p];
+    	 int qid = id[q];
+    	 for (int i = 0; i < id.length; i++)
+    	 if (id[i] == pid) id[i] = qid;
      }
      
 	
 	public static void main(String[] args)
 	{
 	 int N = StdIn.readInt();
-	 UF uf = new UF(N);
+	 id uf = new id(N);
 	 while (!StdIn.isEmpty())
 	 {
 	 int p = StdIn.readInt();
