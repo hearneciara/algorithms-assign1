@@ -21,6 +21,7 @@ public class Luminance {
 	        return gray;
 	    }
 	    
+	    
 
 	    // are the two colors compatible?
 	    public static boolean compatible(Color a, Color b) {
